@@ -39,3 +39,4 @@ pnpm-lock.yaml
 yarn.lock
 
 # pages
+src/app/about-event.tsx
