@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {
   Typography,
+  TypographyProps,
   Card,
   CardHeader,
   CardBody,

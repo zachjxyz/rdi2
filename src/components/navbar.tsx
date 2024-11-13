@@ -5,6 +5,7 @@ import {
   Button,
   IconButton,
   Typography,
+  TypographyProps,
 } from "@material-tailwind/react";
 import {
   RectangleStackIcon,
@@ -13,6 +14,10 @@ import {
   Squares2X2Icon,
   XMarkIcon,
   Bars3Icon,
+  BuildingStorefrontIcon,
+  NewspaperIcon,
+  UserPlusIcon,
+  InformationCircleIcon,
 } from "@heroicons/react/24/solid";
 
 interface NavItemProps {
@@ -21,12 +26,15 @@ interface NavItemProps {
 }
 
 function NavItem({ children, href }: NavItemProps) {
+  const isExternal = href && href.startsWith("http");
+
   return (
     <li>
       <Typography
         as="a"
         href={href || "#"}
-        target={href ? "_blank" : "_self"}
+        target={isExternal ? "_blank" : "_self"}
+        rel={isExternal ? "noopener noreferrer" : undefined}
         variant="paragraph"
         className="flex items-center gap-2 font-medium"
       >
@@ -38,17 +46,24 @@ function NavItem({ children, href }: NavItemProps) {
 
 const NAV_MENU = [
   {
-    name: "Page",
-    icon: RectangleStackIcon,
+    name: "Shop",
+    icon: BuildingStorefrontIcon,
+    href: "/shop",
   },
   {
-    name: "Account",
-    icon: UserCircleIcon,
+    name: "Blog",
+    icon: NewspaperIcon,
+    href: "blog",
   },
   {
-    name: "Docs",
-    icon: CommandLineIcon,
-    href: "https://www.material-tailwind.com/docs/react/installation",
+    name: "Community",
+    icon: UserPlusIcon,
+    href: "https://discord.gg/CqEgPapnuc",
+  },
+  {
+    name: "About",
+    icon: InformationCircleIcon,
+    href: "/about",
   },
 ];
 
@@ -61,7 +76,7 @@ export function Navbar() {
   React.useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setOpen(false)
+      () => window.innerWidth >= 960 && setOpen(false),
     );
   }, []);
 
@@ -92,7 +107,7 @@ export function Navbar() {
           color={isScrolling ? "blue-gray" : "white"}
           className="text-lg font-bold"
         >
-          Material Tailwind
+          RDI
         </Typography>
         <ul
           className={`ml-10 hidden items-center gap-6 lg:flex ${
@@ -107,11 +122,13 @@ export function Navbar() {
           ))}
         </ul>
         <div className="hidden items-center gap-4 lg:flex">
-          <Button color={isScrolling ? "gray" : "white"} variant="text">
-            Log in
-          </Button>
-          <a href="https://www.material-tailwind.com/blocks" target="_blank">
-            <Button color={isScrolling ? "gray" : "white"}>blocks</Button>
+          {/* <Button color={isScrolling ? "gray" : "white"} variant="text">
+            HELLO
+          </Button> */}
+          <a href="#" target="_blank">
+            <Button color={isScrolling ? "gray" : "white"}>
+              JOIN THE WAITLIST
+            </Button>
           </a>
         </div>
         <IconButton
@@ -138,9 +155,9 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-6 flex items-center gap-4">
-            <Button variant="text">Log in</Button>
-            <a href="https://www.materila-tailwind.com/blocks" target="_blank">
-              <Button color="gray">blocks</Button>
+            {/* <Button variant="text">Log in</Button> */}
+            <a href="#" target="_blank">
+              <Button color="gray">GET THE PROJECT</Button>
             </a>
           </div>
         </div>

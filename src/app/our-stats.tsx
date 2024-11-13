@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography } from "@material-tailwind/react";
+import { Typography, TypographyProps } from "@material-tailwind/react";
 import StatsCard from "@/components/stats-card";
 
 const STATS = [

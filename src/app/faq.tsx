@@ -1,7 +1,13 @@
 "use client";
 
 import React from "react";
-import { Typography, Accordion, AccordionHeader, AccordionBody } from "@material-tailwind/react";
+import {
+  Typography,
+  TypographyProps,
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 const FAQS = [
   {
@@ -72,6 +78,5 @@ export function Faq() {
     </section>
   );
 }
-
 
 export default Faq;

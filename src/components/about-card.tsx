@@ -2,6 +2,7 @@ import {
   Card,
   CardBody,
   Typography,
+  TypographyProps,
   Button,
 } from "@material-tailwind/react";
 
@@ -34,6 +35,5 @@ export function AboutCard({ title, description, subTitle }: AboutCardProp) {
     </Card>
   );
 }
-
 
 export default AboutCard;
